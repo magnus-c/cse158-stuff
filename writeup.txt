@@ -1,0 +1,20 @@
+
+For the read prediction task, I took my hw3 code and edited it a bit to fit (used jaccard). 
+Bascially a simmple baselin e using popularity and similarity, and tuned it a bit.
+
+
+
+For the category prediction task, trying to use BERT bc someone said it was better, tokenize text using bert and truncated to a max len of 128 tokens
+tuned a bertforsequenceclassification model with 5 labels for each category trained on 2 epochs with a batch size of 8.
+if it doesnt work then i just took the code from hw3 and added the tf-idf model to it and hoped it worked. 
+TRAINING TOOK TOO LONG FUCK
+
+
+For the rating prediction task, I implemented a global average + user bias + book bias model
+first compute the global average rating across all training data.
+then compute the bias for each user as the difference between the user’s average rating and the global average.
+then compute the bias for each book as the difference between the book’s average rating and the global average.f
+for each (user, book) pair in the test set, predict the rating as:  
+  `predicted_rating = global_average + user_bias + book_bias`  
+  with the result clamped to the range 1–5.
+
